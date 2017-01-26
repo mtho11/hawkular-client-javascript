@@ -1,2 +1,2 @@
-# hawkular-client-javascript
+# Hawkular Client Javascript
 Hawkular Javascript Client Library
