@@ -1,1 +1,1 @@
-export { HawkularMetricsClient } from "./HawkularMetricsClient";
+export { MetricsClient } from "./metricsClient";

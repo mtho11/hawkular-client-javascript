@@ -1,6 +1,5 @@
-
 public class ConnectionProperties {
-    constructor() {
+  constructor() {
 
-    }
+  }
 }
