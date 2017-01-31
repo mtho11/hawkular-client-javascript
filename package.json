@@ -28,11 +28,12 @@
     "Hawkular Metrics javascript client"
   ],
   "author": "Mike Thompson",
-  "license": "MIT",
+  "license": "APL v2",
   "homepage": "https://hawkular.org",
   "devDependencies": {
     "@types/jest": "^0.9.31",
     "@types/node": "^6.0.38",
+    "@types/request": "0.0.39",
     "awesome-typescript-loader": "^2.2.1",
     "babel-core": "^6.14.0",
     "babel-loader": "^6.2.5",
@@ -50,7 +51,9 @@
     "webpack": "2.1.0-beta.22",
     "webpack-node-externals": "^1.4.3"
   },
-  "dependencies": {},
+  "dependencies": {
+    "request": "^2.79.0"
+  },
   "jest": {
     "scriptPreprocessor": "node_modules/typescript-babel-jest",
     "testEnvironment": "node",
