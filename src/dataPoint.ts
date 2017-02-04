@@ -1,6 +1,6 @@
 import {MetricValue, TimestampInMillis} from "./types";
 
-public class DataPoint {
+export class DataPoint {
   constructor(timestamp: TimestampInMillis, value: MetricValue) {
   }
 }

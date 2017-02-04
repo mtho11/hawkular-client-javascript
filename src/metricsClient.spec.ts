@@ -7,16 +7,13 @@ require("babel-polyfill");
 import {MetricsClient, MetricsClientBuilder} from "./metricsClient";
 
 describe("MetricsClient", () => {
-  // it("Should be pass sanity", () => {
-  //   expect(typeof MetricsClient).toBe("function");
-  // });
 
   it("Should be able to create new instance with attributes", () => {
-    let metricsClient = new MetricsClientBuilder("hawk", "localhost")
+    let metricsClient: MetricsClient = new MetricsClientBuilder("hawkular", "localhost")
       .setPort(8080)
       .build();
-    console.log('****' + metricsClient.tenantId);
-    expect(metricsClient.tenantId.toBe("hawk"));
-    //expect(metricsClient.Url.toBeEqual("localhost"));
+    expect(metricsClient.tenantId).toBe("hawkular");
+    expect(metricsClient.url).toBe("localhost");
+    expect(metricsClient.port).toBe(8080);
   });
 });

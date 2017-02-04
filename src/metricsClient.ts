@@ -1,55 +1,65 @@
 import {TenantId} from "./types";
-export class MetricsClient {
 
-  private tenantId: TenantId;
-  private url: string;
-  private port: number;
+export class MetricsClient {
+  private _tenantId: TenantId;
+  private _url: string;
+  private _port: number;
 
   constructor(builder: MetricsClientBuilder) {
-    this.tenantId = builder.tenantId;
-    this.url = builder.url;
-    this.port = builder.setPort(port);
+    this._tenantId = builder.tenantId;
+    this._url = builder.url;
+    this._port = builder.port;
   }
 
-  get tenantId() {
-    return this.tenantId;
+  get tenantId(): TenantId {
+    return this._tenantId;
   }
 
   get url() {
-    return this.url;
+    return this._url;
   }
 
   get port() {
-    return this.port;
+    return this._port;
   }
 
   set port(port: number) {
-    this.port = port;
+    this._port = port;
+  }
+
+  toString() {
+    return this.url;
   }
 }
 
 export class MetricsClientBuilder {
-  public tenantId: TenantId;
-  public url: string;
-  private port: number;
+  private _tenantId: TenantId;
+  private _url: string;
+  private _port: number;
 
   constructor(tenantId: TenantId, url: string) {
-    this.tenantId = tenantId;
-    this.url = url;
+    this._tenantId = tenantId;
+    this._url = url;
   }
 
-  public setPort(value: number): MetricsClientBuilder {
-    this.port = value;
+  public setPort(port: number): MetricsClientBuilder {
+    this._port = port;
     return this;
   }
 
   get port() {
-    return this.port;
+    return this._port;
   }
 
-  build(): MetricsClient {
+  get tenantId(): TenantId {
+    return this._tenantId;
+  }
+
+  get url() {
+    return this._url;
+  }
+
+  public build(): MetricsClient {
     return new MetricsClient(this);
   }
 }
-
-
