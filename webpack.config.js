@@ -14,7 +14,7 @@ var libPath = function(name) {
 	}
 
 	return path.join('dist', name);
-}
+};
 
 /* helper to clean leftovers */
 var outputCleanup = function(dir, initial) {
@@ -45,11 +45,11 @@ var outputCleanup = function(dir, initial) {
 };
 
 /* precentage handler is used to hook build start and ending */
-var percentage_handler = function handler(percentage, msg) {
+var percentage_handler = function handler(percentage, _msg) {
 	if ( 0 == percentage ) {
 		/* Build Started */
 		outputCleanup(libPath(), true);
-		console.log("Build started... Good luck!");
+		console.log("Build started...");
 	} else if ( 1 == percentage ) {
 		// TODO: No Error detection. :(
 		create_browser_version(webpack_opts.output.filename);
@@ -68,7 +68,7 @@ var percentage_handler = function handler(percentage, msg) {
 			}
 		});
 	}
-}
+};
 
 var bundle_opts = {
 
@@ -135,33 +135,33 @@ var bundle_opts = {
 };
 
 var webpack_opts = {
-	entry: './src/main.ts',
-	target: 'node',
-	output: {
-		filename: libPath('main.js'),
-		libraryTarget: "commonjs2"
-	},
-	resolve: {
-		extensions: ['', '.ts', '.js'],
-		modules: [
-			'node_modules',
-			'src',
-		]
-	},
-	module: {
-		preLoaders: [{ test: /\.ts$/, loaders: ['tslint'] }],
-		loaders: [{ test: /\.ts$/, loaders: ['babel-loader', 'awesome-typescript-loader'] }]
-	},
-	externals: [nodeExternals()],
-	plugins: [
-		new webpack.optimize.UglifyJsPlugin(),
-		new webpack.ProgressPlugin(percentage_handler)
-	],
-	tslint: {
-		emitErrors: true,
-		failOnHint: true
-	}
-}
+  entry: './src/main.ts',
+  target: 'node',
+  output: {
+    filename: libPath('main.js'),
+    libraryTarget: "commonjs2"
+  },
+  resolve: {
+    extensions: ['', '.ts', '.js'],
+    modules: [
+      'node_modules',
+      'src',
+    ]
+  },
+  module: {
+    preLoaders: [{test: /\.ts$/, loaders: ['tslint']}],
+    loaders: [{test: /\.ts$/, loaders: ['babel-loader', 'awesome-typescript-loader']}]
+  },
+  externals: [nodeExternals()],
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin(),
+    new webpack.ProgressPlugin(percentage_handler)
+  ],
+  tslint: {
+    emitErrors: true,
+    failOnHint: true
+  }
+};
 
 var create_browser_version = function (inputJs) {
 	let outputName = inputJs.replace(/\.[^/.]+$/, "");
@@ -172,12 +172,12 @@ var create_browser_version = function (inputJs) {
 		standalone: bundle_opts.name,
 	});
 
-	b.bundle(function(err, src) {
+	b.bundle(function(err, _src) {
 		if ( err != null ) {
 			console.error("Browserify error:");
 			console.error(err);
 		}
 	}).pipe(fs.createWriteStream(outputName));
-}
+};
 
 module.exports = webpack_opts;
