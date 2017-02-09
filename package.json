@@ -28,7 +28,7 @@
     "Hawkular Metrics javascript client"
   ],
   "author": "Mike Thompson",
-  "license": "APL v2",
+  "license": "Apache-2.0",
   "homepage": "https://hawkular.org",
   "devDependencies": {
     "@types/jest": "^0.9.31",
