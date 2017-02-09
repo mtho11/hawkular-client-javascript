@@ -12,19 +12,17 @@ export type ResourceType = string;
 export type PathId = string;
 export type MetricTagMap = Map<string, string>;
 
-
 // Enum types
 enum AvailabilityType {UP, DOWN, UNKNOWN}
 
 export class MetricType {
 
+  public static COUNTER = new MetricType("COUNTER");
+  public static GAUGE = new MetricType("GAUGE");
+  public static AVAILABILITY = new MetricType("AVAILABILITY");
+  public static STRING = new MetricType("STRING");
   constructor(public value: string) {
   }
-
-  public static COUNTER = new MetricType('COUNTER');
-  public static GAUGE = new MetricType('GAUGE');
-  public static AVAILABILITY = new MetricType('AVAILABILITY');
-  public static STRING = new MetricType('STRING');
 
   public toString = () => {
     return this.value;

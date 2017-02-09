@@ -1,6 +1,6 @@
 "use strict";
 
-import 'jest';
+import "jest";
 import {Metric} from "./metric";
 import {MetricType} from "./types";
 import {DataPoint} from "./dataPoint";
