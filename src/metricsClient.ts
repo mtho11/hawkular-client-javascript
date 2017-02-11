@@ -27,7 +27,7 @@ export class MetricsClient {
     this._port = port;
   }
 
-  toString() {
+  public toString() {
     return this.url;
   }
 }
