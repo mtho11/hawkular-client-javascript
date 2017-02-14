@@ -7,6 +7,7 @@ import {DataPoint} from "./dataPoint";
 require("babel-core/register");
 require("babel-polyfill");
 
+// Test metric client
 describe("MetricsClient", () => {
 
   it("Should be able to create new Metric", () => {
