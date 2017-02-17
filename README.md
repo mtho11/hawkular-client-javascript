@@ -2,6 +2,7 @@
 
 ## Client for Hawkular Metrics
 This is a javascript client  used to connect to a running  Hawkular instance.
+It enables connection to the Hawkular metrics.
 
 To install:
 ````
